@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -28,11 +30,10 @@ class _HomePageState extends State<HomePage> {
   var _queIndex = 0;
 
   void _ansQue() {
-    if (_queIndex < questions.length) {}
     setState(() {
       _queIndex++;
     });
-    print('$_queIndex // $_queIndex');
+    print('$_queIndex // $_queIndex');     
   }
 
   final questions = [
