@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'question.dart';
-import './answer.dart';
+import 'package:quiz_app/quiz.dart';
+import 'package:quiz_app/result.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     print('$_queIndex // $_queIndex');
   }
 
-  final questions = [
+  final _questions = const [
     {
       'questionText': 'What\'s your favorite color?',
       'answers': ['Black', 'Blue', 'Red', 'Green'],
@@ -57,20 +57,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: const Center(
-        //     child: SizedBox(
-        //         width: 20,
-        //         height: 20,
-        //         child: CircularProgressIndicator(
-        //           strokeWidth: 10,
-        //           backgroundColor: Colors.white,
-        //         ))),
         systemOverlayStyle: SystemUiOverlayStyle.dark,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         toolbarHeight: 100,
         title: const Text(
           'Quiz App',
+          style: TextStyle(
+            fontSize: 28,
+            fontFamily: 'times new roman',
+          ),
         ),
         centerTitle: true,
         flexibleSpace: Container(
@@ -87,16 +83,13 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Question(
-            questions[_queIndex]['questionText'].toString(),
-          ),
-          ...(questions[_queIndex]['answers'] as List<String>).map((answer) {
-            return Answer(_ansQue, answer);
-          }).toList(),
-        ],
-      ),
+      body: _queIndex < _questions.length
+          ? Quiz(
+              _questions,
+              _ansQue,
+              _queIndex,
+            )
+          : const Result(),
     );
   }
 }
