@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
-  final Function getter;
+  final Function ansQue;
   final String answerText;
 
-  const Answer(this.getter, this.answerText, {Key? key}) : super(key: key);
+  const Answer(this.ansQue, this.answerText, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: TextButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.blueAccent),
-          overlayColor: MaterialStateProperty.all(Colors.redAccent),
-        ),
-        onPressed: () {
-          getter();
-        },
-        child: Text(
-          answerText,
-          style: const TextStyle(
-            color: Colors.white,
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+      child: SizedBox(
+        width: double.infinity,
+        child: TextButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.blueAccent),
+            overlayColor: MaterialStateProperty.all(Colors.redAccent),
+          ),
+          onPressed: () {
+            ansQue();
+          },
+          child: Text(
+            answerText,
+            style: const TextStyle(
+              color: Colors.white,
+            ),
           ),
         ),
       ),

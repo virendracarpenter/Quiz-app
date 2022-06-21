@@ -53,6 +53,12 @@ class _HomePageState extends State<HomePage> {
     },
   ];
 
+  void _restartQuiz() {
+    setState(() {
+      _queIndex = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,12 +90,15 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: _queIndex < _questions.length
-          ? Quiz(
-              _questions,
-              _ansQue,
-              _queIndex,
+          ? Padding(
+              padding: const EdgeInsets.all(20),
+              child: Quiz(
+                _questions,
+                _ansQue,
+                _queIndex,
+              ),
             )
-          : const Result(),
+          : Result(_restartQuiz),
     );
   }
 }
