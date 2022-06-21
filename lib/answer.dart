@@ -14,8 +14,8 @@ class Answer extends StatelessWidget {
         width: double.infinity,
         child: TextButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.blueAccent),
-            overlayColor: MaterialStateProperty.all(Colors.redAccent),
+            backgroundColor: MaterialStateProperty.all(Colors.redAccent),
+            overlayColor: MaterialStateProperty.all(Colors.blue),
           ),
           onPressed: () {
             ansQue();

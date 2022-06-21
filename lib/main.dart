@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:quiz_app/quiz.dart';
 import 'package:quiz_app/result.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -31,7 +31,6 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _queIndex++;
     });
-    print('$_queIndex // $_queIndex');
   }
 
   final _questions = const [
